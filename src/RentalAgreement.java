@@ -17,6 +17,18 @@ public class RentalAgreement {
     private final BigDecimal finalCharge;
     private final LocalDate dueDate;
 
+    /**
+     * Constructor to initialize the rental agreement.
+     *
+     * @param tool             The code of the rented tool.
+     * @param rentalDays       Total rental days.
+     * @param checkoutDate     Rental start date.
+     * @param dueDate          Rental end date.
+     * @param preDiscountCharge Total charge before discount.
+     * @param discountPercent  Discount percentage applied.
+     * @param discountAmount   Total discount amount.
+     * @param finalCharge      Final rental cost after discount.
+     */
     public RentalAgreement(Tool tool, int rentalDays, LocalDate checkoutDate, int discountPercent,
                            BigDecimal preDiscountCharge, BigDecimal discountAmount, BigDecimal finalCharge, LocalDate dueDate) {
         this.tool = tool;
