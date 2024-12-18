@@ -1,6 +1,12 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
+
+/**
+ * Main entry point for the application.
+ * Demonstrates tool rental functionality and showcases the use of core classes.
+ */
 
 public class ToolRentalApp {
     private static final Map<String, Tool> tools = new HashMap<>();
@@ -36,13 +42,13 @@ public class ToolRentalApp {
         LocalDate dueDate = checkoutDate.plusDays(rentalDays);
         int chargeDays = calculateChargeDays(tool, checkoutDate, rentalDays);
         BigDecimal preDiscountCharge = tool.getDailyCharge().multiply(BigDecimal.valueOf(chargeDays));
-        BigDecimal discountAmount = preDiscountCharge.multiply(BigDecimal.valueOf(discountPercent)).divide(BigDecimal.valueOf(100));
+        BigDecimal discountAmount = preDiscountCharge.multiply(BigDecimal.valueOf(discountPercent)).divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
         BigDecimal finalCharge = preDiscountCharge.subtract(discountAmount);
 
         return new RentalAgreement(tool, rentalDays, checkoutDate, discountPercent,
-                preDiscountCharge.setScale(2, BigDecimal.ROUND_HALF_UP),
-                discountAmount.setScale(2, BigDecimal.ROUND_HALF_UP),
-                finalCharge.setScale(2, BigDecimal.ROUND_HALF_UP), dueDate);
+                preDiscountCharge.setScale(2, RoundingMode.HALF_UP),
+                discountAmount.setScale(2, RoundingMode.HALF_UP),
+                finalCharge.setScale(2, RoundingMode.HALF_UP), dueDate);
     }
 
     private static int calculateChargeDays(Tool tool, LocalDate checkoutDate, int rentalDays) {

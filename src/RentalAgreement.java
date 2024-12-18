@@ -2,6 +2,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a rental agreement.
+ * Encapsulates the details of a tool rental transaction.
+ */
+
 public class RentalAgreement {
     private final Tool tool;
     private final int rentalDays;

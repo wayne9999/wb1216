@@ -1,5 +1,9 @@
 import java.math.BigDecimal;
 
+/**
+ * Represents a tool available for rental.
+ * Encapsulates the attributes of a tool including its rental charges and applicable charge rules.
+ */
 public class Tool {
     private final String toolCode;
     private final String toolType;
