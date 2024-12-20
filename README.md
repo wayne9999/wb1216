@@ -1,4 +1,4 @@
-# Tool Rental Application
+# model.Tool Rental Application
 
 ## Overview
 
@@ -6,7 +6,7 @@ This project is a simple tool rental application implemented in Java. It demonst
 
 ## Key Features
 
-- **Tool Management**: Provides predefined tools with unique codes, brands, and rental charge rules.
+- **model.Tool Management**: Provides predefined tools with unique codes, brands, and rental charge rules.
 - **Holiday Calculation**: Accounts for specific holidays (Independence Day, Labor Day) and adjusts charge days accordingly.
 - **Rental Agreement**: Generates detailed agreements including charges, discounts, and due dates.
 - **JDK Compliance**: Built using modern Java standards (JDK 9+).
@@ -31,21 +31,21 @@ This project is a simple tool rental application implemented in Java. It demonst
    git clone <repository-url>
    ```
 2. Open the project in IntelliJ IDEA.
-3. Navigate to the `ToolRentalApp` class.
+3. Navigate to the `app.ToolRentalApp` class.
 4. Run the `main` method to execute the application.
 
 ### Example Output
 
 ```
-Selected Tool Details:
-Tool Code: LADW
-Tool Type: Ladder
+Selected model.Tool Details:
+model.Tool Code: LADW
+model.Tool Type: model.Ladder
 Brand: Werner
 Daily Charge: $1.99
 Is 2024-07-04 a holiday? true
-Tool code: LADW
-Tool type: Ladder
-Tool brand: Werner
+model.Tool code: LADW
+model.Tool type: model.Ladder
+model.Tool brand: Werner
 Rental days: 5
 Check out date: 09/03/24
 Due date: 09/08/24
@@ -61,31 +61,31 @@ Final charge: $5.37
 
 ### Classes
 
-#### `Tool`
+#### `model.Tool`
 
 Represents a rental tool with attributes:
 
-- Tool code
-- Tool type
+- model.Tool code
+- model.Tool type
 - Brand
 - Charges (weekday, weekend, holiday)
 
-#### `HolidayCalculator`
+#### `util.HolidayCalculator`
 
 Utility class to determine if a date is a holiday based on:
 
 - Independence Day (adjusted for weekends)
 - Labor Day (first Monday of September)
 
-#### `RentalAgreement`
+#### `dto.RentalAgreement`
 
 Encapsulates details of a rental transaction including:
 
-- Tool details
+- model.Tool details
 - Rental period
 - Charges and discounts
 
-#### `ToolRentalApp`
+#### `app.ToolRentalApp`
 
 Main entry point to demonstrate the application's functionality:
 
@@ -97,13 +97,13 @@ Main entry point to demonstrate the application's functionality:
 
 #### `checkout(String toolCode, int rentalDays, int discountPercent, LocalDate checkoutDate)`
 
-Validates inputs, calculates charges, and generates a `RentalAgreement`.
+Validates inputs, calculates charges, and generates a `dto.RentalAgreement`.
 
-#### `HolidayCalculator.isHoliday(LocalDate date)`
+#### `util.HolidayCalculator.isHoliday(LocalDate date)`
 
 Determines if a given date is a holiday.
 
-#### `RentalAgreement.printAgreement()`
+#### `dto.RentalAgreement.printAgreement()`
 
 Prints the details of the rental agreement in a user-friendly format.
 

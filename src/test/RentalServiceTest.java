@@ -1,5 +1,13 @@
+package test;
+
+import model.Chainsaw;
+import model.Jackhammer;
+import model.Ladder;
+import model.Tool;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import service.IRentalService;
+import service.RentalService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,7 +21,7 @@ class RentalServiceTest {
     private IRentalService rentalService; // Use the interface for flexibility
 
     /**
-     * Setup method to initialize the tools and RentalService before each test.
+     * Setup method to initialize the tools and service.RentalService before each test.
      * This ensures that the tests work with a fresh, valid inventory.
      */
     @BeforeEach
@@ -24,7 +32,7 @@ class RentalServiceTest {
         tools.put("LADW", new Ladder("LADW", "Werner", BigDecimal.valueOf(1.99)));
         tools.put("JAKD", new Jackhammer("JAKD", "DeWalt", BigDecimal.valueOf(2.99)));
         tools.put("JAKR", new Jackhammer("JAKR", "Ridgid", BigDecimal.valueOf(2.99)));
-        rentalService = new RentalService(tools); // Inject the tools map into RentalService
+        rentalService = new RentalService(tools); // Inject the tools map into service.RentalService
     }
 
     /**
@@ -34,7 +42,7 @@ class RentalServiceTest {
     void testCheckoutInvalidToolCode() {
         LocalDate checkoutDate = LocalDate.of(2024, 9, 3); // LocalDate input
         Exception exception = assertThrows(IllegalArgumentException.class, () -> rentalService.checkout("INVALID", 5, 10, checkoutDate));
-        assertEquals("Tool not found: INVALID", exception.getMessage());
+        assertEquals("model.Tool not found: INVALID", exception.getMessage());
     }
 
     /**
@@ -79,9 +87,9 @@ class RentalServiceTest {
     void testNullInputs() {
         LocalDate checkoutDate = LocalDate.of(2024, 9, 3); // LocalDate input
         Exception exception = assertThrows(IllegalArgumentException.class, () -> rentalService.checkout(null, 5, 10, checkoutDate));
-        assertEquals("Tool code and checkout date cannot be null.", exception.getMessage());
+        assertEquals("model.Tool code and checkout date cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> rentalService.checkout("LADW", 5, 10, null));
-        assertEquals("Tool code and checkout date cannot be null.", exception.getMessage());
+        assertEquals("model.Tool code and checkout date cannot be null.", exception.getMessage());
     }
 }

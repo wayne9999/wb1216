@@ -1,3 +1,7 @@
+package service;
+
+import dto.RentalAgreement;
+
 import java.time.LocalDate;
 
 // Interface for Rental Service

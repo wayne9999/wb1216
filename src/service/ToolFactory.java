@@ -1,3 +1,10 @@
+package service;
+
+import model.Chainsaw;
+import model.Jackhammer;
+import model.Ladder;
+import model.Tool;
+
 import java.math.BigDecimal;
 
 // Factory class to create tool instances dynamically

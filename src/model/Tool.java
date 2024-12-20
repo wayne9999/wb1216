@@ -1,3 +1,5 @@
+package model;
+
 import java.math.BigDecimal;
 
 /**
@@ -7,7 +9,7 @@ import java.math.BigDecimal;
 public abstract class Tool {
     // Unique identifier for the tool (e.g., CHNS, LADW)
     private final String toolCode;
-    // Type of tool (e.g., Chainsaw, Ladder, Jackhammer)
+    // Type of tool (e.g., model.Chainsaw, model.Ladder, model.Jackhammer)
     private final String toolType;
     // Brand of the tool (e.g., Stihl, Werner, DeWalt)
     private final String brand;
@@ -15,7 +17,7 @@ public abstract class Tool {
     private final BigDecimal dailyCharge;
 
     /**
-     * Constructor to initialize the attributes of the Tool class.
+     * Constructor to initialize the attributes of the model.Tool class.
      *
      * @param toolCode    The unique identifier for the tool.
      * @param toolType    The type of tool being rented.

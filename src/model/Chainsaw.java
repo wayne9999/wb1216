@@ -1,9 +1,11 @@
+package model;
+
 import java.math.BigDecimal;
 
-// Chainsaw tool, extending the abstract Tool class
+// model.Chainsaw tool, extending the abstract model.Tool class
 public class Chainsaw extends Tool {
     public Chainsaw(String toolCode, String brand, BigDecimal dailyCharge) {
-        super(toolCode, "Chainsaw", brand, dailyCharge);
+        super(toolCode, "model.Chainsaw", brand, dailyCharge);
     }
 
     @Override

@@ -1,3 +1,11 @@
+package app;
+
+import dto.RentalAgreement;
+import model.Tool;
+import service.IRentalService;
+import service.RentalService;
+import util.ToolSeeder;
+
 import java.time.LocalDate;
 import java.util.Map;
 
@@ -9,15 +17,15 @@ import java.util.Map;
 public class ToolRentalApp {
 
     public static void main(String[] args) {
-        // Seed data using the ToolSeeder
+        // Seed data using the util.ToolSeeder
         Map<String, Tool> tools = ToolSeeder.getToolInventory();
 
-        // Inject the seeded tool inventory into the RentalService
+        // Inject the seeded tool inventory into the service.RentalService
         IRentalService rentalService = new RentalService(tools);
 
         try {
             // Example input for a rental checkout
-            String toolCode = "LADW";        // Tool code for Ladder
+            String toolCode = "LADW";        // model.Tool code for model.Ladder
             int rentalDays = 5;             // Number of rental days
             int discountPercent = 10;       // Discount percentage
             LocalDate checkoutDate = LocalDate.of(2024, 9, 3); // Checkout date in MM/dd/yy format

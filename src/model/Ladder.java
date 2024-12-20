@@ -1,9 +1,11 @@
+package model;
+
 import java.math.BigDecimal;
 
-// Ladder tool, extending the abstract Tool class
+// model.Ladder tool, extending the abstract model.Tool class
 public class Ladder extends Tool {
     public Ladder(String toolCode, String brand, BigDecimal dailyCharge) {
-        super(toolCode, "Ladder", brand, dailyCharge);
+        super(toolCode, "model.Ladder", brand, dailyCharge);
     }
 
     @Override

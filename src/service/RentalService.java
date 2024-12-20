@@ -1,4 +1,8 @@
-// RentalService Class to handle checkout logic and manage tool rentals
+package service;// service.RentalService Class to handle checkout logic and manage tool rentals
+import dto.RentalAgreement;
+import model.Tool;
+import util.HolidayCalculator;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
@@ -22,18 +26,18 @@ public class RentalService implements IRentalService {
     /**
      * Processes the checkout operation and generates a rental agreement.
      *
-     * @param toolCode       The code of the tool being rented.
-     * @param rentalDays     The number of rental days (must be >= 1).
+     * @param toolCode        The code of the tool being rented.
+     * @param rentalDays      The number of rental days (must be >= 1).
      * @param discountPercent The discount percentage (0-100).
-     * @param checkoutDate The checkout date in MM/dd/yy format.
-     * @return A RentalAgreement object containing the rental details.
+     * @param checkoutDate    The checkout date in MM/dd/yy format.
+     * @return A dto.RentalAgreement object containing the rental details.
      * @throws IllegalArgumentException If inputs are invalid.
      */
 
     public RentalAgreement checkout(String toolCode, int rentalDays, int discountPercent, LocalDate checkoutDate) {
         // Null and input validation checks
         if (toolCode == null || checkoutDate == null) {
-            throw new IllegalArgumentException("Tool code and checkout date cannot be null.");
+            throw new IllegalArgumentException("model.Tool code and checkout date cannot be null.");
         }
         // Validate rental days
         if (rentalDays < 1) {

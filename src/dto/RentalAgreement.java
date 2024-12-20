@@ -1,3 +1,8 @@
+package dto;
+
+import model.Tool;
+import util.HolidayCalculator;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -43,9 +48,9 @@ public class RentalAgreement {
 
     public void printAgreement() {
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yy");
-        System.out.println("Tool code: " + tool.getToolCode());
-        System.out.println("Tool type: " + tool.getToolType());
-        System.out.println("Tool brand: " + tool.getBrand());
+        System.out.println("model.Tool code: " + tool.getToolCode());
+        System.out.println("model.Tool type: " + tool.getToolType());
+        System.out.println("model.Tool brand: " + tool.getBrand());
         System.out.println("Rental days: " + rentalDays);
         System.out.println("Check out date: " + checkoutDate.format(dateFormatter));
         System.out.println("Due date: " + dueDate.format(dateFormatter));

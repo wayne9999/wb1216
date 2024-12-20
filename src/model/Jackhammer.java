@@ -1,9 +1,11 @@
+package model;
+
 import java.math.BigDecimal;
 
-// Jackhammer tool, extending the abstract Tool class
+// model.Jackhammer tool, extending the abstract model.Tool class
 public class Jackhammer extends Tool {
     public Jackhammer(String toolCode, String brand, BigDecimal dailyCharge) {
-        super(toolCode, "Jackhammer", brand, dailyCharge);
+        super(toolCode, "model.Jackhammer", brand, dailyCharge);
     }
 
     @Override

@@ -1,10 +1,15 @@
+package util;
+
+import model.Tool;
+import service.ToolFactory;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ToolSeeder {
     /**
-     * Populates and returns a map of tools for the rental service using the ToolFactory.
+     * Populates and returns a map of tools for the rental service using the service.ToolFactory.
      *
      * @return A map of tool objects keyed by their tool codes.
      */
