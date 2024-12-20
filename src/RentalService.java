@@ -9,17 +9,14 @@ import java.util.*;
  * processing checkout requests, and calculating rental agreements.
  */
 
-public class RentalService {
-    private final Map<String, Tool> tools = new HashMap<>(); // Map to store tool inventory by tool code
+public class RentalService implements IRentalService {
+    private final Map<String, Tool> tools; // Map to store tool inventory by tool code
 
     /**
      * Constructor to initialize the tool inventory with predefined tools.
      */
-    public RentalService() {
-        tools.put("CHNS", new Tool("CHNS", "Chainsaw", "Stihl", BigDecimal.valueOf(1.49), true, false, true));
-        tools.put("LADW", new Tool("LADW", "Ladder", "Werner", BigDecimal.valueOf(1.99), true, true, false));
-        tools.put("JAKD", new Tool("JAKD", "Jackhammer", "DeWalt", BigDecimal.valueOf(2.99), true, false, false));
-        tools.put("JAKR", new Tool("JAKR", "Jackhammer", "Ridgid", BigDecimal.valueOf(2.99), true, false, false));
+    public RentalService(Map<String, Tool> tools) {
+        this.tools = tools;
     }
 
     /**
@@ -32,7 +29,12 @@ public class RentalService {
      * @return A RentalAgreement object containing the rental details.
      * @throws IllegalArgumentException If inputs are invalid.
      */
+
     public RentalAgreement checkout(String toolCode, int rentalDays, int discountPercent, LocalDate checkoutDate) {
+        // Null and input validation checks
+        if (toolCode == null || checkoutDate == null) {
+            throw new IllegalArgumentException("Tool code and checkout date cannot be null.");
+        }
         // Validate rental days
         if (rentalDays < 1) {
             throw new IllegalArgumentException("Rental days must be 1 or greater.");

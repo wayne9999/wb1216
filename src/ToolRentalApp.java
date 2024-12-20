@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Map;
 
 /**
  * Main entry point for the application.
@@ -8,8 +9,12 @@ import java.time.LocalDate;
 public class ToolRentalApp {
 
     public static void main(String[] args) {
-        // Initialize the rental service
-        RentalService rentalService = new RentalService();
+        // Seed data using the ToolSeeder
+        Map<String, Tool> tools = ToolSeeder.getToolInventory();
+
+        // Inject the seeded tool inventory into the RentalService
+        IRentalService rentalService = new RentalService(tools);
+
         try {
             // Example input for a rental checkout
             String toolCode = "LADW";        // Tool code for Ladder
